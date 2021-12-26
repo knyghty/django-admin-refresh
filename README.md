@@ -26,6 +26,7 @@ and the design is looking a bit dated.
 ## Constraints
 
 - We can't touch the views as long as this is a third party package.
+- It would be good to leave the translatable strings as untouched as possible.
 - Need to figure out if we can replace widgets.
 
 ## To decide
