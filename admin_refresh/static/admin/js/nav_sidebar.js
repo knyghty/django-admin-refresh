@@ -2,6 +2,7 @@
 {
     const toggleNavSidebar = document.getElementById('toggle-nav-sidebar');
     if (toggleNavSidebar !== null) {
+        const overlay = document.getElementById('overlay');
         const navLinks = document.querySelectorAll('#nav-sidebar a');
         function disableNavLinkTabbing() {
             for (const navLink of navLinks) {
@@ -14,27 +15,22 @@
             }
         }
 
-        const main = document.getElementById('main');
-        let navSidebarIsOpen = localStorage.getItem('django.admin.navSidebarIsOpen');
-        if (navSidebarIsOpen === null) {
-            navSidebarIsOpen = 'true';
-        }
-        if (navSidebarIsOpen === 'false') {
-            disableNavLinkTabbing();
-        }
-        main.classList.toggle('shifted', navSidebarIsOpen === 'true');
-
         toggleNavSidebar.addEventListener('click', function() {
-            if (navSidebarIsOpen === 'true') {
-                navSidebarIsOpen = 'false';
-                disableNavLinkTabbing();
-            } else {
-                navSidebarIsOpen = 'true';
+            const navSidebar = document.getElementById('nav-sidebar');
+            navSidebar.classList.toggle('opened');
+            overlay.classList.toggle('active');
+            if (navSidebar.classList.contains('opened')) {
                 enableNavLinkTabbing();
+            } else {
+                disableNavLinkTabbing();
             }
-            localStorage.setItem('django.admin.navSidebarIsOpen', navSidebarIsOpen);
-            main.classList.toggle('shifted');
         });
+        overlay.addEventListener('click', function() {
+            const navSidebar = document.getElementById('nav-sidebar');
+            navSidebar.classList.remove('opened');
+            overlay.classList.remove('active');
+        });
+
     }
 
     function initSidebarQuickFilter() {

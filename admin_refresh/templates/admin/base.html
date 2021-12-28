@@ -28,58 +28,75 @@
     class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}"
     data-admin-utc-offset="{% now "Z" %}"
   >
-    <!-- Container -->
-    <div id="container">
-      {% if not is_popup %}
-        <!-- Header -->
-        {% block header %}
-          <div id="header">
-            <div id="branding">
-              {% block branding %}{% endblock %}
-            </div>
-            {% block usertools %}
-              {% if has_permission %}
-                <div id="user-tools">
-                  {% block welcome-msg %}
-                    {% translate 'Welcome,' %}
-                    <strong>{% firstof user.get_short_name user.get_username %}</strong>.
-                  {% endblock %}
-                  {% block userlinks %}
-                    {% if site_url %}
-                      <a href="{{ site_url }}">{% translate 'View site' %}</a> /
-                    {% endif %}
-                    {% if user.is_active and user.is_staff %}
-                      {% url 'django-admindocs-docroot' as docsroot %}
-                      {% if docsroot %}
-                        <a href="{{ docsroot }}">{% translate 'Documentation' %}</a> /
-                      {% endif %}
-                    {% endif %}
-                    {% if user.has_usable_password %}
-                      <a href="{% url 'admin:password_change' %}">{% translate 'Change password' %}</a> /
-                    {% endif %}
-                    <a href="{% url 'admin:logout' %}">{% translate 'Log out' %}</a>
-                  {% endblock %}
-                </div>
-              {% endif %}
+    {% if not is_popup %}
+      {% block header %}
+        <div id="header">
+          {% if is_nav_sidebar_enabled %}
+            {% block nav-sidebar-toggle %}
+              <button
+                class="sticky toggle-nav-sidebar"
+                id="toggle-nav-sidebar"
+                aria-haspopup="menu"
+                aria-label="{% translate 'Toggle navigation' %}"
+              >
+                <svg viewBox="0 0 100 50" width="24" height="24">
+                  <rect width="100%" height="8"></rect>
+                  <rect y="30" width="100" height="8"></rect>
+                  <rect y="60" width="100" height="8"></rect>
+                </svg>
+              </button>
             {% endblock %}
-            {% block nav-global %}{% endblock %}
+          {% endif %}
+          <div id="branding">
+            {% block branding %}{% endblock %}
           </div>
-        {% endblock %}
-        <!-- END Header -->
+          {% block usertools %}
+            {% if has_permission %}
+              <div id="user-tools">
+                {% block welcome-msg %}
+                  {% translate 'Welcome,' %}
+                  <strong>{% firstof user.get_short_name user.get_username %}</strong>.
+                {% endblock %}
+                {% block userlinks %}
+                  {% if site_url %}
+                    <a href="{{ site_url }}">{% translate 'View site' %}</a> /
+                  {% endif %}
+                  {% if user.is_active and user.is_staff %}
+                    {% url 'django-admindocs-docroot' as docsroot %}
+                    {% if docsroot %}
+                      <a href="{{ docsroot }}">{% translate 'Documentation' %}</a> /
+                    {% endif %}
+                  {% endif %}
+                  {% if user.has_usable_password %}
+                    <a href="{% url 'admin:password_change' %}">{% translate 'Change password' %}</a> /
+                  {% endif %}
+                  <a href="{% url 'admin:logout' %}">{% translate 'Log out' %}</a>
+                {% endblock %}
+              </div>
+            {% endif %}
+          {% endblock %}
+          {% block nav-global %}{% endblock %}
+        </div>
+      {% endblock header %}
+    {% endif %}
+    <div id="main-container">
+      {% if not is_popup %}
         {% block breadcrumbs %}
           <div class="breadcrumbs">
             <a href="{% url 'admin:index' %}">{% translate 'Home' %}</a>
             {% if title %} &rsaquo; {{ title }}{% endif %}
           </div>
         {% endblock %}
-      {% endif %}
 
-      <div class="main" id="main">
-        {% if not is_popup and is_nav_sidebar_enabled %}
+        {% if is_nav_sidebar_enabled %}
           {% block nav-sidebar %}
             {% include "admin/nav_sidebar.html" %}
           {% endblock %}
         {% endif %}
+      {% endif %}
+
+      <div class="main" id="main">
+        <div id="overlay"></div>
         <div class="content">
           {% block messages %}
             {% if messages %}
@@ -90,7 +107,6 @@
               </ul>
             {% endif %}
           {% endblock messages %}
-          <!-- Content -->
           <div id="content" class="{% block coltype %}colM{% endblock %}">
             {% block pretitle %}{% endblock %}
             {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
@@ -102,11 +118,9 @@
             {% block sidebar %}{% endblock %}
             <br class="clear">
           </div>
-          <!-- END Content -->
-          {% block footer %}<div id="footer"></div>{% endblock %}
         </div>
+        {% block footer %}<div id="footer"></div>{% endblock %}
       </div>
     </div>
-  <!-- END Container -->
   </body>
 </html>
