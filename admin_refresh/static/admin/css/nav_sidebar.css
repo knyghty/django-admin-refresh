@@ -1,4 +1,6 @@
 :root {
+    --header-hamburger-highlight: #3e7d65;
+
     --sidebar-width: 19rem;
 }
 
@@ -11,7 +13,11 @@
 }
 
 #toggle-nav-sidebar:hover {
-    background: #ebb;
+    background: var(--header-hamburger-highlight);
+}
+
+#hamburger {
+    filter: invert(1);
 }
 
 #nav-sidebar {

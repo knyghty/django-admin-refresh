@@ -3,6 +3,11 @@
 }
 
 :root {
+    --body-bg: #fff;
+
+    --header-bg: #0c4b33;
+    --header-color: #fff;
+
     --header-height: 3.2rem;
 }
 
@@ -11,6 +16,7 @@ html {
 }
 
 body {
+    background: var(--body-bg);
     font-family: system-ui, sans-serif;
     height: 100%;
     margin: 0;
@@ -23,6 +29,7 @@ h1 {
 .btn-unstyled {
     background: transparent;
     border: 0;
+    color: inherit;
     font-family: inherit;
     font-size: 1em;
 }
@@ -40,7 +47,7 @@ h1 {
 }
 
 .dropdown-menu {
-    background: #fff;
+    background: var(--body-bg);
     border-radius: .25em;
     box-shadow: 0 .15em .25em rgba(0, 0, 0, 0.25);
     left: -100%;
@@ -61,7 +68,8 @@ h1 {
 
 #header {
     align-items: center;
-    background: cornflowerblue;
+    background: var(--header-bg);
+    color: var(--header-color);
     display: flex;
     height: var(--header-height);
     justify-content: space-between;
@@ -75,7 +83,7 @@ h1 {
 }
 
 #branding a {
-    color: black;
+    color: var(--header-color);
 }
 
 #main-container {
