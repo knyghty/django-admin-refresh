@@ -95,7 +95,7 @@
         {% endif %}
       {% endif %}
 
-      <div class="main" id="main">
+      <main>
         <div id="overlay"></div>
         <div class="content">
           {% block messages %}
@@ -119,8 +119,8 @@
             <br class="clear">
           </div>
         </div>
-        {% block footer %}<div id="footer"></div>{% endblock %}
-      </div>
+      </main>
+      {% block footer %}<footer id="footer"></div>{% endblock %}
     </div>
   </body>
 </html>
