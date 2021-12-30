@@ -4,6 +4,7 @@
     if (toggleNavSidebar !== null) {
         const overlay = document.getElementById('overlay');
         const navLinks = document.querySelectorAll('#nav-sidebar a');
+        const mainLinks = document.querySelectorAll('#main a');
         function disableNavLinkTabbing() {
             for (const navLink of navLinks) {
                 navLink.tabIndex = -1;
@@ -14,6 +15,16 @@
                 navLink.tabIndex = 0;
             }
         }
+        function enableMainLinkTabbing() {
+            for (const mainLink of mainLinks) {
+                mainLink.tabIndex = 0;
+            }
+        }
+        function disableMainLinkTabbing() {
+            for (const mainLink of mainLinks) {
+                mainLink.tabIndex = -1;
+            }
+        }
 
         toggleNavSidebar.addEventListener('click', function() {
             const navSidebar = document.getElementById('nav-sidebar');
@@ -21,8 +32,10 @@
             overlay.classList.toggle('active');
             if (navSidebar.classList.contains('opened')) {
                 enableNavLinkTabbing();
+                disableMainLinkTabbing();
             } else {
                 disableNavLinkTabbing();
+                enableMainLinkTabbing();
             }
         });
         overlay.addEventListener('click', function() {
