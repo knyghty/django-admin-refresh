@@ -1,11 +1,15 @@
+:root {
+    --sidebar-width: 19rem;
+}
+
 #toggle-nav-sidebar {
     cursor: pointer;
     border: 0;
     background: transparent;
     border-radius: 50%;
-    padding: 5px;
-    width: 40px;
-    height: 40px;
+    padding: 0.3rem;
+    width: 2.5rem;
+    height: 2.5rem;
 }
 
 #toggle-nav-sidebar:hover {
@@ -15,11 +19,11 @@
 #nav-sidebar {
     background: lavenderblush;
     position: fixed;
-    top: 50px;
-    left: -300px;
+    top: var(--header-height);
+    left: calc(0rem - var(--sidebar-width));
     transition: left 0.5s ease;
     z-index: 110;
-    width: 300px;
+    width: var(--sidebar-width);
     overflow: auto;
     height: 100vh;
 }
