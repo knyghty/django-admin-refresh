@@ -34,8 +34,9 @@
           {% if is_nav_sidebar_enabled %}
             {% block nav-sidebar-toggle %}
               <button
-                class="sticky toggle-nav-sidebar"
+                class="btn-unstyled"
                 id="toggle-nav-sidebar"
+                aria-controls="nav-sidebar"
                 aria-haspopup="menu"
                 aria-label="{% translate 'Toggle navigation' %}"
               >
@@ -52,27 +53,29 @@
           </div>
           {% block usertools %}
             {% if has_permission %}
-              <div id="user-tools">
-                {% block welcome-msg %}
-                  {% translate 'Welcome,' %}
-                  <strong>{% firstof user.get_short_name user.get_username %}</strong>.
-                {% endblock %}
+              <div class="dropdown">
+                <button class="btn-unstyled dropdown-toggle" aria-controls="user-tools" aria-haspopup="true">
+                  {% firstof user.get_short_name user.get_username %}
+                  <span class="caret" role="presentation">&#9660;</span>
+                </button>
                 {% block userlinks %}
-                  {% if site_url %}
-                    <a href="{{ site_url }}">{% translate 'View site' %}</a> /
-                  {% endif %}
-                  {% if user.is_active and user.is_staff %}
-                    {% url 'django-admindocs-docroot' as docsroot %}
-                    {% if docsroot %}
-                      <a href="{{ docsroot }}">{% translate 'Documentation' %}</a> /
+                  <ul class="dropdown-menu" id="user-tools">
+                    {% if site_url %}
+                      <li><a href="{{ site_url }}">{% translate 'View site' %}</a></li>
                     {% endif %}
-                  {% endif %}
-                  {% if user.has_usable_password %}
-                    <a href="{% url 'admin:password_change' %}">{% translate 'Change password' %}</a> /
-                  {% endif %}
-                  <a href="{% url 'admin:logout' %}">{% translate 'Log out' %}</a>
-                {% endblock %}
-              </div>
+                    {% if user.is_active and user.is_staff %}
+                      {% url 'django-admindocs-docroot' as docsroot %}
+                      {% if docsroot %}
+                        <li><a href="{{ docsroot }}">{% translate 'Documentation' %}</a></li>
+                      {% endif %}
+                    {% endif %}
+                    {% if user.has_usable_password %}
+                      <li><a href="{% url 'admin:password_change' %}">{% translate 'Change password' %}</a></li>
+                    {% endif %}
+                    <li><a href="{% url 'admin:logout' %}">{% translate 'Log out' %}</a></li>
+                  </ul>
+                </div>
+              {% endblock %}
             {% endif %}
           {% endblock %}
           {% block nav-global %}{% endblock %}

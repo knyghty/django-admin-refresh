@@ -20,12 +20,52 @@ h1 {
     margin: 0 0 1.5em;
 }
 
+.btn-unstyled {
+    background: transparent;
+    border: 0;
+    font-family: inherit;
+    font-size: 1em;
+}
+
+.caret {
+    font-size: .8em;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    background: #fff;
+    border-radius: .25em;
+    box-shadow: 0 .15em .25em rgba(0, 0, 0, 0.25);
+    left: -100%;
+    list-style: none;
+    padding: .5em 0;
+    position: absolute;
+    top: calc(100% - 0.25rem);
+    visibility: hidden;
+}
+
+.dropdown-menu li {
+    padding: .25em .5em;
+}
+
+.dropdown:focus-within .dropdown-menu {
+    visibility: visible;
+}
+
 #header {
     align-items: center;
     background: cornflowerblue;
     display: flex;
     height: var(--header-height);
-    padding: 0 0.3rem;
+    justify-content: space-between;
+    padding: 0 1rem;
     position: fixed;
     width: 100%;
 }
@@ -34,4 +74,5 @@ h1 {
     min-height: calc(100vh - var(--header-height));
     position: relative;
     top: var(--header-height);
+    z-index: -1;
 }

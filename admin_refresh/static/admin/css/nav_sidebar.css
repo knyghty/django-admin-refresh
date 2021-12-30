@@ -4,8 +4,6 @@
 
 #toggle-nav-sidebar {
     cursor: pointer;
-    border: 0;
-    background: transparent;
     border-radius: 50%;
     padding: 0.3rem;
     width: 2.5rem;
