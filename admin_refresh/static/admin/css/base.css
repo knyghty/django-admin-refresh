@@ -70,6 +70,14 @@ h1 {
     width: 100%;
 }
 
+#branding {
+    font-size: 1.25em;
+}
+
+#branding a {
+    color: black;
+}
+
 #main-container {
     min-height: calc(100vh - var(--header-height));
     position: relative;
