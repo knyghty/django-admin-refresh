@@ -75,7 +75,9 @@ h1 {
     justify-content: space-between;
     padding: 0 1rem;
     position: fixed;
+    top: 0;
     width: 100%;
+    z-index: 120;
 }
 
 #branding {
@@ -90,5 +92,4 @@ h1 {
     min-height: calc(100vh - var(--header-height));
     position: relative;
     top: var(--header-height);
-    z-index: -1;
 }
