@@ -52,7 +52,7 @@
         if (!navSidebar) {
             return;
         }
-        navSidebar.querySelectorAll('th[scope=row] a').forEach((container) => {
+        navSidebar.querySelectorAll('li a:first-of-type').forEach((container) => {
             options.push({title: container.innerHTML, node: container});
         });
 
@@ -75,8 +75,8 @@
                         matches = true;
                     }
                 }
-                // show/hide parent <TR>
-                o.node.parentNode.parentNode.style.display = displayValue;
+                // show/hide parent <li>
+                o.node.parentNode.style.display = displayValue;
             }
             if (!filterValue || matches) {
                 event.target.classList.remove('no-results');

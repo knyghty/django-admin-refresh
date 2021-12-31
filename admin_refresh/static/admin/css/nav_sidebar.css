@@ -1,5 +1,8 @@
 :root {
     --header-hamburger-highlight: #3e7d65;
+    --sidebar-bg: #fff;
+    --sidebar-color: #000;
+    --sidebar-active-row: #eee;
 
     --sidebar-width: 19rem;
 }
@@ -20,22 +23,6 @@
     filter: invert(1);
 }
 
-#nav-sidebar {
-    background: lavenderblush;
-    position: fixed;
-    top: var(--header-height);
-    left: calc(0rem - var(--sidebar-width));
-    transition: left 0.3s ease;
-    z-index: 110;
-    width: var(--sidebar-width);
-    overflow: auto;
-    height: 100vh;
-}
-
-#nav-sidebar.opened {
-    left: 0;
-}
-
 #overlay {
     position: absolute;
     opacity: 0;
@@ -54,4 +41,60 @@
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
+}
+
+#nav-sidebar {
+    background: var(--sidebar-bg);
+    position: fixed;
+    top: var(--header-height);
+    left: calc(0rem - var(--sidebar-width));
+    transition: left 0.3s ease;
+    z-index: 110;
+    width: var(--sidebar-width);
+    overflow: auto;
+    height: 100vh;
+}
+
+#nav-sidebar.opened {
+    left: 0;
+}
+
+#nav-filter {
+    padding: 1em;
+    width: 100%;
+}
+
+#nav-sidebar section {
+    margin: 1em 0 0 0;
+}
+
+#nav-sidebar header a {
+    display: block;
+    font-weight: bold;
+    width: 100%;
+}
+
+#nav-sidebar ul {
+    margin: 0;
+    padding: 0;
+}
+
+#nav-sidebar li {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+#nav-sidebar a {
+    color: var(--sidebar-color);
+    padding: 0.75em 1em;
+    text-decoration: none;
+}
+
+#nav-sidebar a:first-of-type {
+    flex-grow: 1;
+}
+
+#nav-sidebar a:hover {
+    background: var(--sidebar-active-row);
 }
