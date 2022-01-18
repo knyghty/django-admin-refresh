@@ -93,3 +93,7 @@ h1 {
     position: relative;
     top: var(--header-height);
 }
+
+main {
+    padding: 2em;
+}
