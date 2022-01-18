@@ -69,6 +69,10 @@ h1 {
 #header {
     align-items: center;
     background: var(--header-bg);
+    box-shadow:
+        0 3px 3px 0 rgba(0, 0, 0, .2),
+        0 3px 3px -2px rgba(0, 0, 0, .15),
+        0 1px 8px 0 rgba(0, 0, 0, .1);
     color: var(--header-color);
     display: flex;
     height: var(--header-height);
