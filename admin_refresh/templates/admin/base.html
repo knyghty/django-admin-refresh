@@ -118,7 +118,9 @@
           {% block content_subtitle %}{% if subtitle %}<h2>{{ subtitle }}</h2>{% endif %}{% endblock %}
           {% block content %}
             {% block object-tools %}{% endblock %}
-            {{ content }}
+            <div id="content">
+              {{ content }}
+            </div>
           {% endblock %}
           {% block sidebar %}{% endblock %}
         </div>
