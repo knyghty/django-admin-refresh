@@ -2,8 +2,37 @@
 A refresh for the Django admin in... 2022? I hope?
 
 This is intended as a design refresh to merged into Django.
-It's under heavy development and isn't suitable for anything yet,
-but will be released on pypi when it has some form of usability.
+It's under heavy development and isn't suitable for anything yet.
+
+## Installation
+
+To try this out, you'll need a Django project. If you don't have one,
+I've been testing using my
+[django-admin-demo](https://github.com/knyghty/django-admin-demo) project.
+
+Install the package:
+
+```bash
+pip install django-admin-refresh
+```
+
+The release on PyPI is likely to be out of date, so you may want to
+install the latest version from GitHub by cloning this repo and
+install it locally: `pip install -e /path/to/django-admin-refresh`.
+
+Then add `admin_refresh` it to your `INSTALLED_APPS` **above**
+`django.contrib.admin` and `django.contrib.admindocs` if using:
+
+```python
+    INSTALLED_APPS = [
+        "admin_refresh",
+        "django.contrib.admindocs",
+        "django.contrib.admin",
+        ...
+    ]
+```
+
+Now you can create yourself a supuerser as normal and log in to the admin site.
 
 ## Rationale
 
