@@ -7,8 +7,11 @@
 
     --header-bg: #0c4b33;
     --header-color: #fff;
-
     --header-height: 3.3rem;
+
+    --table-caption-bg: #126f4c;
+    --table-caption-color: #fff;
+    --table-stripe-bg: #f5f5f5;
 }
 
 html {
@@ -100,4 +103,59 @@ h1 {
 
 main {
     padding: 2em;
+}
+
+#content {
+    column-gap: 1em;
+    display: grid;
+}
+
+#content.with-sidebar {
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas:
+        "main sidebar";
+}
+
+#content-main {
+    grid-area: main;
+}
+
+#content-related {
+    grid-area: sidebar;
+}
+
+.striped tr:nth-child(even) {
+    background: var(--table-stripe-bg);
+}
+
+.module {
+    margin-bottom: 2em;
+}
+
+.module a {
+    color: blue;
+    text-decoration: none;
+}
+
+.module a:hover, .module a:focus , .module a:active {
+    text-decoration: underline;
+}
+
+.module table {
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+}
+
+.module caption {
+    background: var(--table-caption-bg);
+    padding: .5em;
+}
+
+.module caption a {
+    color: var(--table-caption-color);
+}
+
+.module th, .module tr {
+    padding: .5em;
 }

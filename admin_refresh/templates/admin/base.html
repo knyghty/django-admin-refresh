@@ -112,16 +112,13 @@
             </ul>
           {% endif %}
         {% endblock messages %}
-        <div id="content" class="{% block coltype %}colM{% endblock %}">
-          {% block pretitle %}{% endblock %}
-          {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
-          {% block content_subtitle %}{% if subtitle %}<h2>{{ subtitle }}</h2>{% endif %}{% endblock %}
-          {% block content %}
-            {% block object-tools %}{% endblock %}
-            <div id="content">
-              {{ content }}
-            </div>
-          {% endblock %}
+        {% block pretitle %}{% endblock %}
+        {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
+        {% block content_subtitle %}{% if subtitle %}<h2>{{ subtitle }}</h2>{% endif %}{% endblock %}
+        {% block object-tools %}{% endblock %}
+        <div id="content" class="{% block coltype %}{% endblock %}">
+          {% block content %}{% endblock %}
+          {{ content }}
           {% block sidebar %}{% endblock %}
         </div>
       </main>
