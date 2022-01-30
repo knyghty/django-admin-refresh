@@ -30,7 +30,7 @@
       {% else %}
         <ul class="actionlist">
           {% for entry in admin_log %}
-            <li class="{% if entry.is_addition %}addlink{% elif entry.is_change %}changelink{% elif entry.is_deletion %}deletelink{% endif %}">
+            <li class="{% if entry.is_addition %}added{% elif entry.is_change %}changed{% elif entry.is_deletion %}deleted{% endif %}">
               {% if entry.is_deletion or not entry.get_admin_url %}
                 {{ entry.object_repr }}
               {% else %}

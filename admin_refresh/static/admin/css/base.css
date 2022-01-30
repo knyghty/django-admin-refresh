@@ -9,9 +9,15 @@
     --header-color: #fff;
     --header-height: 3.3rem;
 
+    --sidebar-bg: #f2f2f2;
+
     --table-caption-bg: #126f4c;
     --table-caption-color: #fff;
-    --table-stripe-bg: #f5f5f5;
+    --table-stripe-bg: #f2f2f2;
+
+    --icon-add: url(../img/icon-addlink.svg);
+    --icon-change: url(../img/icon-changelink.svg);
+    --icon-delete: url(../img/icon-deletelink.svg);
 }
 
 html {
@@ -26,7 +32,23 @@ body {
 }
 
 h1 {
-    margin: 0 0 1.5em;
+    font-size: 1.75em;
+    margin: 0 0 1em;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+h3 {
+    font-size: 1.25em;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .btn-unstyled {
@@ -128,6 +150,25 @@ main {
     background: var(--table-stripe-bg);
 }
 
+th.fill-space {
+    width: 100%;
+}
+
+.addlink {
+    background: var(--icon-add) 0 1px no-repeat;
+    padding-left: 1em;
+}
+
+.changelink {
+    background: var(--icon-change) 0 1px no-repeat;
+    padding-left: 1em;
+}
+
+.deletelink {
+    background: var(--icon-delete) 0 1px no-repeat;
+    padding-left: 1em;
+}
+
 .module {
     margin-bottom: 2em;
 }
@@ -156,6 +197,6 @@ main {
     color: var(--table-caption-color);
 }
 
-.module th, .module tr {
+.module th, .module td {
     padding: .5em;
 }

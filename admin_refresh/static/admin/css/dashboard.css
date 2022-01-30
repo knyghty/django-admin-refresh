@@ -1,0 +1,28 @@
+#recent-actions-module {
+    background: var(--sidebar-bg);
+    padding: 1em;
+}
+
+#recent-actions-module h3 {
+    margin: 1em 0;
+}
+
+.actionlist {
+    padding-left: 1.25em;
+}
+
+.actionlist li {
+    margin-bottom: .5em;
+}
+
+.actionlist .added {
+    list-style: var(--icon-add);
+}
+
+.actionlist .changed {
+    list-style: var(--icon-change);
+}
+
+.actionlist .deleted {
+    list-style: var(--icon-delete);
+}

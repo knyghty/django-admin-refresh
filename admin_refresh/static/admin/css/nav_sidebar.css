@@ -1,10 +1,10 @@
 :root {
     --header-hamburger-highlight: #3e7d65;
-    --sidebar-bg: #fff;
-    --sidebar-color: #000;
-    --sidebar-active-row: #eee;
+    --nav-sidebar-bg: #fff;
+    --nav-sidebar-color: #000;
+    --nav-sidebar-active-row: #eee;
 
-    --sidebar-width: 19rem;
+    --nav-sidebar-width: 19rem;
 }
 
 #toggle-nav-sidebar {
@@ -44,13 +44,13 @@
 }
 
 #nav-sidebar {
-    background: var(--sidebar-bg);
+    background: var(--nav-sidebar-bg);
     position: fixed;
     top: var(--header-height);
-    left: calc(0rem - var(--sidebar-width));
+    left: calc(0rem - var(--nav-sidebar-width));
     transition: left 0.3s ease;
     z-index: 110;
-    width: var(--sidebar-width);
+    width: var(--nav-sidebar-width);
     overflow: auto;
     height: 100vh;
 }
@@ -90,7 +90,7 @@
 }
 
 #nav-sidebar a {
-    color: var(--sidebar-color);
+    color: var(--nav-sidebar-color);
     padding: 0.75em 1em;
     text-decoration: none;
 }
@@ -100,5 +100,5 @@
 }
 
 #nav-sidebar a:hover {
-    background: var(--sidebar-active-row);
+    background: var(--nav-sidebar-active-row);
 }
