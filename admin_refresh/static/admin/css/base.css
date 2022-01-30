@@ -51,6 +51,10 @@ ul {
     padding: 0;
 }
 
+small {
+    font-size: .8em;
+}
+
 .btn-unstyled {
     background: transparent;
     border: 0;
