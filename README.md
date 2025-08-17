@@ -1,5 +1,5 @@
 # django-admin-refresh
-A refresh for the Django admin in... 2022? I hope?
+A refresh for the Django admin in... 2026? I hope?
 
 This is intended as a design refresh to merged into Django.
 It's under heavy development and isn't suitable for anything yet.
